@@ -108,7 +108,7 @@ const ToDoTask = () => {
   };
   return (
     <>
-      <div className={`h-[100vh]  ${toggle ? "bg-[#231F20]" : "bg-[#f5f5f5]"}`}>
+      <div className={` ${toggle ? "bg-[#231F20]" : "bg-[#f5f5f5]"}`}>
         <div
           className={`flex justify-between  ${toggle ? "bg-[#231F20]" : "bg-[#f5f5f5]"}`}
         >
@@ -122,7 +122,7 @@ const ToDoTask = () => {
         <div
           className={` flex flex-col md:flex-row justify-center gap-4 font-inter ${toggle ? "text-white bg-[#231F20]" : "text-black bg-[#f5f5f5]"}`}
         >
-          <div className="flex justify-start h-[28rem] ml-2">
+          <div className="flex justify-start h-[28rem] mx-4">
             <form
               className={`flex flex-col w-96 ${toggle ? "text-zinc-400 bg-[#231F20]" : "text-black bg-[#f5f5f5] border-black"} border p-4 rounded-xl`}
             >
@@ -181,7 +181,7 @@ const ToDoTask = () => {
           </div>
 
           <div
-            className={`w-[90vw] ${toggle ? "text-white bg-[#231F20]" : "text-black bg-[#f5f5f5] border-[#D4AF37]"} border rounded-2xl shadow-md mx-2`}
+            className={`w-[90vw] mb-5 ${toggle ? "text-white bg-[#231F20]" : "text-black bg-[#f5f5f5] border-[#D4AF37]"} border rounded-2xl shadow-md mx-4`}
           >
             <div className="flex flex-col md:flex-row justify-between p-2 ">
               <div>
@@ -194,8 +194,8 @@ const ToDoTask = () => {
                   {today}
                 </p>
               </div>
-              <div className="w-fit h-fit flex gap-1">
-                {" "}
+              <div className="w-fit h-fit flex gap-1 my-2 text-sm">
+              
                 <p className="border text-center p-2 rounded-xl">
                   Total Tasks:{tasks.length}{" "}
                 </p>

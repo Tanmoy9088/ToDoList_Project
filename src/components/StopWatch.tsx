@@ -56,15 +56,15 @@ function StopWatch() {
   };
   return (
     <>
-      <div className="flex flex-col h-[100vh] justify-center items-center">
+      <div className="flex flex-col justify-center items-center my-5">
         <p className=" sw-label ">STOPWATCH</p>
         <div
-          className={`h-[60vh] w-[50vw] flex flex-col gap-10 justify-center items-center bg-zinc-900 text-white border rounded-2xl`}
+          className={`flex flex-col gap-10 justify-center items-center bg-zinc-900 text-white border rounded-2xl`}
         >
-          <div>
+          <div className="mt-4">
             <p>{formatTime(count)}</p>
           </div>
-          <div className={`flex justify-center gap-5`}>
+          <div className={`flex justify-center gap-5 mx-2`}>
             <button
               className="border p-2 rounded-xl font-bold bg-emerald-400 uppercase"
               onClick={start}
@@ -95,7 +95,7 @@ function StopWatch() {
               </button>
             )}
           </div>
-          <div className=" h-64 w-64 border p-2 rounded-xl border-white flex flex-col gap-0 overflow-y-auto">
+          <div className=" h-72 w-80 border p-2 mb-4 rounded-xl border-white flex flex-col gap-0 overflow-y-auto">
             {laps.map((delta, i) => (
               <p className="border p-1 text-center rounded-2xl m-1" key={i}>
                 Lap {i + 1}: {(delta / 1000).toFixed(2)}s
