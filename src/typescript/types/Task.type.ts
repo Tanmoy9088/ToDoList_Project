@@ -5,3 +5,11 @@ export type TaskForm = {
   deadline: string;
   taskCompleted: boolean;
 };
+export type TaskProps = {
+  Tasks: TaskForm;
+  id: number;
+  onEdit: (id: number) => void;
+  onDelete: (id: number) => void;
+  onCompleted: (id: number) => void;
+  isEdit: boolean;
+};

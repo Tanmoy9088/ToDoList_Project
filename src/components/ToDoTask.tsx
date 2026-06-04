@@ -20,7 +20,6 @@ const ToDoTask = () => {
   );
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [editindex, setEditIndex] = useState<number | null>(null);
-  // const [isEnter, setIsEnter] = useState<boolean>(false);
 
   const today = new Date().toLocaleDateString("en-IN", {
     year: "numeric",
@@ -28,6 +27,7 @@ const ToDoTask = () => {
     day: "numeric",
   });
 
+  //this function is handle the form's input value and store to the TaskForm
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -39,7 +39,7 @@ const ToDoTask = () => {
       ...prev,
       [name]: value,
     }));
-    // setIsEnter((prev) => !prev);
+
     console.log(e);
   };
   {
@@ -58,6 +58,7 @@ const ToDoTask = () => {
     localStorage.setItem("Tasks", JSON.stringify(completed));
   };
 
+  //handleEdit can edit the stored array (TaskForm)
   const handleEdit = (index: number) => {
     const editTasks = tasks[index];
     setTaskForm(editTasks);
@@ -65,6 +66,7 @@ const ToDoTask = () => {
     setIsEdit(true);
   };
 
+  //handleDelete delete the existing particular array by matching the index of the tasks[] in which we tap the delete button.
   const handleDelete = (index: number) => {
     const updated = tasks.filter((_task, i) => i !== index);
     setTasks(updated);
@@ -87,6 +89,7 @@ const ToDoTask = () => {
     setIsEdit(!isEdit);
   };
 
+  //handleSubmit ->  submit the form, stored to localstorage, and set all the fields to it starting states
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const updated = [...tasks, taskForm];
@@ -102,6 +105,7 @@ const ToDoTask = () => {
     });
   };
 
+  //this paricular codes are used to manage the theme of the application, like it can handle bg color, text color changes.
   const [toggle, setToggle] = useState<boolean>(false);
   const handleToggle = () => {
     setToggle((prev) => !prev);
@@ -195,7 +199,6 @@ const ToDoTask = () => {
                 </p>
               </div>
               <div className="w-fit h-fit flex gap-1 my-2 text-sm">
-              
                 <p className="border text-center p-2 rounded-xl">
                   Total Tasks:{tasks.length}{" "}
                 </p>

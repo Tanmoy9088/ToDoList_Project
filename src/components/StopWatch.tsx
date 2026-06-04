@@ -13,17 +13,18 @@ function StopWatch() {
   const [lastLapTime, setLastLapTime] = useState(0);
 
   function start() {
-    const now = Date.now();
+    const now = Date.now(); //store time value in ms
     setStartTime(now);
     if (laps.length === 0) {
       setLastLapTime(now);
-    }
+    } //it handle when we press stop button and then start it will not reset lastlap to 0.
+
     setIsRunning(true);
     const id = setInterval(() => {
       setCount(Date.now() - now + savedTime);
     }, 100);
     setIntervalId(id);
-    console.log(count);
+    // console.log(count);
   }
   function stop() {
     clearInterval(intervalId!);
@@ -41,11 +42,11 @@ function StopWatch() {
     setLastLapTime(0);
   }
   const lap = () => {
-    const nowL = Date.now();
-    console.log(nowL);
-    const delta = nowL - lastLapTime; // time since last lap
+    const now = Date.now();
+    console.log(now);
+    const delta = now - lastLapTime; // time since last lap
     setLaps((prev) => [...prev, delta]); // save it
-    setLastLapTime(nowL);
+    setLastLapTime(now); //store the lastlap
     // setIsRunning(true);
   };
   const formatTime = (ms: number): string => {

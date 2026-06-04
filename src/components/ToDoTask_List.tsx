@@ -1,66 +1,13 @@
-// import React, { useState } from "react";
-import {
-  // CheckCircle,
-  // Ellipsis,
-  Pencil,
-  Square,
-  SquareCheck,
-  Trash2,
-} from "lucide-react";
-import type { TaskForm } from "../typescript/types/Task.type";
-type TaskProps = {
-  Tasks: TaskForm;
-  id: number;
-  onEdit: (id: number) => void;
-  onDelete: (id: number) => void;
-  onCompleted: (id: number) => void;
-  isEdit: boolean;
-};
-const ToDoTask_List = ({
+import { Pencil, Square, SquareCheck, Trash2 } from "lucide-react";
+import type { TaskProps } from "../typescript/types/Task.type";
+
+const ToDoTask_List: React.FC<TaskProps> = ({
   Tasks,
   id,
   onEdit,
   onDelete,
   onCompleted,
-  // isEdit,
-}: TaskProps) => {
-  // const [taskForm, setTaskForm] = useState<TaskForm>({
-  //   taskName: "",
-  //   taskPriority: "",
-  //   taskDescription: "",
-  //   taskCompleted: false,
-  // });
-
-  // const [tasks, setTasks] = useState<TaskForm[]>(() =>
-  //   JSON.parse(localStorage.getItem("Tasks") ?? "[]"),
-  // );
-
-  // const [editindex, setEditIndex] = useState<number | null>(null);
-
-  // const handleCompleted = (index: number) => {
-  //   const completed = tasks.map((task, i) =>
-  //     i === index
-  //       ? {
-  //           ...task,
-  //           taskCompleted: !task.taskCompleted,
-  //         }
-  //       : task,
-  //   );
-  //   setTasks(completed);
-  //   localStorage.setItem("Tasks", JSON.stringify(completed));
-  // };
-
-  // const handleEdit = (index: number) => {
-  //   const editTasks = tasks[index];
-  //   setTaskForm(editTasks);
-  //   setEditIndex(index);
-  // };
-
-  // const handleDelete = (index: number) => {
-  //   const updated = tasks.filter((task, i) => i !== index);
-  //   setTasks(updated);
-  //   localStorage.setItem("Tasks", JSON.stringify(updated));
-  // };
+}) => {
   return (
     <>
       <div
@@ -87,7 +34,9 @@ const ToDoTask_List = ({
           >
             {Tasks.taskPriority === "" ? "" : Tasks.taskPriority}
           </p>
-          <p className="text-center">{Tasks.deadline === "" ? "" : Tasks.deadline}</p>
+          <p className="text-center">
+            {Tasks.deadline === "" ? "" : Tasks.deadline}
+          </p>
           <p
             className={`text-xs bg-slate-500 w-fit h-fit px-1 py-1 border border-black rounded-xl ${Tasks.taskCompleted ? "opacity-60 text-green-200" : "opacity-100"}`}
           >
@@ -105,7 +54,6 @@ const ToDoTask_List = ({
           <button
             className="border bg-yellow-500 p-1 px-2 m-1 rounded-xl active:scale-90 transition-transform duration-150"
             onClick={() => onEdit(id)}
-            //  disabled={isEdit}
           >
             <Pencil />
           </button>
